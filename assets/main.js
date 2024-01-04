@@ -3,17 +3,11 @@ const offset = 0
 const limit = 10
 const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
-//consumindo a url
+//minimizando código
 fetch(url)
-    //coletando o sucesso da requisição, caso tenha sucesso
-    .then(function (response) {
-        respon
-    })
-    //coletando possível erro da requisição, apenas retorna caso tenha erro
-    .catch(function (error){
-        console.log(error)
-    })
-    //conclusão da requisição, independente de erro ou sucesso
-    .finally(function (){
-        console.log('Requisição concluida')
-    })
+    //utilizando arrow function para retornar o response no formato json
+    .then((response) => response.json())
+    //printando o retorno do primeiro then da promise no console
+    .then((responseBody) => console.log(responseBody))
+    //utilizando arrow function para coletar possível erro tbm
+    .catch((error) => console.log(error))
