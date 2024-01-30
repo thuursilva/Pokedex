@@ -22,15 +22,22 @@ function convertPokemon (pokemon){
     </li>`
 }
 
+//pegando a lista de pokemons no HTML
+const pokemonList = document.getElementById('pokemonlist')
+
+
 fetch(url)
     .then((response) => response.json())
     .then((responseBody) => responseBody.results)
-    .then((pokemonList) => {
+    .then((pokemons) => {
         
-        for (let i = 0; i < pokemonList.length; i++) {
-            const pokemon = pokemonList[i];
-            console.log(convertPokemon(pokemon))
+        for (let i = 0; i < pokemons.length; i++) {
+            const pokemon = pokemons[i];
+            //convertendo os pokemon e inserindo eles na lista do HTML
+            pokemonList.innerHTML += convertPokemon(pokemon)
         }
     })
     .catch((error) => console.log(error))
+
+
 
