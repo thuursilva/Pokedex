@@ -1,8 +1,4 @@
 
-const offset = 0
-const limit = 10
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-
 function convertPokemon (pokemon){
     return `
     <li class="card">
@@ -22,22 +18,26 @@ function convertPokemon (pokemon){
     </li>`
 }
 
-//pegando a lista de pokemons no HTML
 const pokemonList = document.getElementById('pokemonlist')
 
+pokeApi.getPokemons().then((pokemons = []) => {
+        
+    /*utilizando a função map para conversão da lista em HTML e substituir o for
+    versão reduzida const newList = pokemons.map((pokemon) => convertPokemon(pokemon))
+    versão ainda mais reduzida const newList = pokemons.map(convertPokemon)
 
-//chamando a função criada em PokeApi.js, dividindo o código
-//alterando o a conversão dos pokemon em lista para renderizar a lista uma única vez pelo browser
-pokeApi.getPokemons().then((pokemons) => {
-        const listItems = []
+    utilizando join para juntar todo o valor de newList em uma única string sem separador
+    const newHtml = newList.join('')
+    pokemonList.innerHTML += newHtml
 
-        for (let i = 0; i < pokemons.length; i++) {
-            const pokemon = pokemons[i];
-            listItems.push(convertPokemon(pokemon))
-        }
+    diminuindo código utilizando o join em conjunto const newList = pokemons.map(convertPokemon).join('')
+    diminuindo completamente o código em uma única linha*/
 
-        console.log(listItems)
-    })
+    //agora em uma única linha nos mapeamos a lista de pokemons, convertemos em HTML e inserimos todos em uma string
+    pokemonList.innerHTML += pokemons.map(convertPokemon).join('')
+
+
+})
 
 
 
