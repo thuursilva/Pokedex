@@ -1,27 +1,24 @@
-
-//criando uma lista para converter os tipos dos pokemons em li
-//nos detalhes, cada tipo do pokemon fica dentro de um slot e possui um nome
-function convertPokemonTypes(pokemonTypes){
+//não hpa mais necessidade dessa função
+/*function convertPokemonTypes(pokemonTypes){
     return pokemonTypes.map((typeSlot) => `<li class="type">${typeSlot.type.name}</li>`)
-}
+}*/
 
-//após pegar os detalhes dos pokemon, podemos alterar na função de converter em Li
-//chamando a função de converter tipos, passando os tipos do pokemon em uma string
-//inserindo a foto do pokemon de forma dinâmica nos Sprites apresentados
+//alterando a inserção de tipos e imagem
+//inserindo nova classe html tipo, contendo o tipo primário do pokemon e possibilitar alteração de cor de fundo no css dinamicamente
 function convertPokemon (pokemon){
     return `
-    <li class="card">
+    <li class="card ${pokemon.type}">
 
-    <span class="number">#${pokemon.id}</span>
+    <span class="number">#${pokemon.number}</span>
     <span class="name">${pokemon.name}</span>
 
     <div class="detail">
 
         <ol class="types">
-            ${convertPokemonTypes(pokemon.types).join('')}
+            ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
         </ol>
 
-        <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
+        <img src="${pokemon.photo}" alt="${pokemon.name}">
     </div>
     </li>`
 }
