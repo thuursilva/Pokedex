@@ -6,7 +6,6 @@
     --text-number: #000;
 }
 
-/*criando classes para inserção do background dos pokemon de forma dinâmica*/
 .normal{
     background-color: #A8A77A;
 }
@@ -94,7 +93,7 @@ body{
     flex-direction: column;
 }
 
-/*inserino a primeira letra do nome como maiuscula*/
+
 .name{
     text-transform: capitalize;
 }
@@ -123,9 +122,27 @@ body{
     font-size: 0.6rem;
     margin: 0.2rem 0;
     border-radius: 1rem;
-    /*deixando a cor do tipo mais destacada que o background*/
     filter: brightness(1.1);
     text-align: center;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button{
+    background-color: #462ed1;
+    border: none;
+    border-radius: 1rem;
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    margin: 0.2rem 0;
+    font-size: 1rem;
 }
 
 @media screen and (min-width:992px){
