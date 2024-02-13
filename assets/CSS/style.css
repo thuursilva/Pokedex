@@ -2,10 +2,64 @@
 
 :root{
     --font: 'Roboto', sans-serif;
-    --bg-green: #49d0b0;
     --text-color: white;
     --text-number: #000;
-    --bg-card-green: #61e1ca;
+}
+
+/*criando classes para inserção do background dos pokemon de forma dinâmica*/
+.normal{
+    background-color: #A8A77A;
+}
+.fire{
+    background-color: #EE8130;
+}
+.water{
+    background-color: #6390F0;
+}
+.eletric{
+    background-color: #f7f72c;
+}
+.grass{
+    background-color: #4cc779;
+}
+.ice{
+    background-color: #96D9D6;
+}
+.fighting{
+    background-color: #C22E28;
+}
+.poison{
+    background-color: #A33EA1;
+}
+.ground{
+    background-color: #E2BF65;
+}
+.flying{
+    background-color: #A98FF3;
+}
+.psychic{
+    background-color: #F95587;
+}
+.bug{
+    background-color: #A6B91A;
+}
+.rock{
+    background-color: #B6A136;
+}
+.ghost{
+    background-color: #735797;
+}
+.dragon{
+    background-color: #6F35FC;
+}
+.dark{
+    background-color: #705746;
+}
+.steel{
+    background-color: #B7B7CE;
+}
+.fairy{
+    background-color: #D685AD;
 }
 
 body{
@@ -35,10 +89,14 @@ body{
     margin: 0.5rem;
     padding: 1rem;
     color: var(--text-color);
-    background-color: var(--bg-green);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+/*inserino a primeira letra do nome como maiuscula*/
+.name{
+    text-transform: capitalize;
 }
 
 .number{
@@ -61,11 +119,13 @@ body{
 }
 
 .type{
-    background-color:var(--bg-card-green);
     padding: 0.25rem 0.5rem;
     font-size: 0.6rem;
     margin: 0.2rem 0;
     border-radius: 1rem;
+    /*deixando a cor do tipo mais destacada que o background*/
+    filter: brightness(1.1);
+    text-align: center;
 }
 
 @media screen and (min-width:992px){

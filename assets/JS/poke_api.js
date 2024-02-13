@@ -1,7 +1,7 @@
 
 const pokeApi = {}
 
-pokeApi.getPokemons = (offset = 0, limit = 5) => {
+pokeApi.getPokemons = (offset = 0, limit = 6) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
     return fetch(url)
         .then((response) => response.json())
@@ -11,13 +11,12 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((pokemonsDetails) => pokemonsDetails)
 }
 
-//nova função de coversão do modelo da PokeAPI a classe Pokemon 
+
 function convertPokeApiModel(pokeDetail){
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
 
-    //simplificando o código de tipos
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
     pokemon.types = types
@@ -25,7 +24,6 @@ function convertPokeApiModel(pokeDetail){
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
 
-    //retorna o novo pokemon ao final
     return pokemon
 }
  
