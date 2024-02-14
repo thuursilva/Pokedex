@@ -1,11 +1,10 @@
 
 const pokemonList = document.getElementById('pokemonlist')
 const loadButton = document.getElementById('loadMore')
-const limit = 5
+const limit = 10
+const maxRecords = 151
 let offset = 0
 
-//criando uma função para concatenar pokemons ao html já criado ao invés de substituir ao seleiconar "Load More"
-//retirando a função de conversão e inserindo no map já existente
 function loadPokemons(offset, limit){
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map((pokemon) => `
@@ -28,14 +27,26 @@ function loadPokemons(offset, limit){
     })
 }
 
-//chamando a função
 loadPokemons(offset, limit)
 
-//adicionando ação a ser efetuada a clicar no botão
-//iremos incrementar em offset o valor de limit para carregar novos pokemon
+//criando regra para gerar apenas os pokemon da primeira geração
 loadButton.addEventListener('click', () =>{
     offset += limit
-    loadPokemons(offset, limit)
+
+    //criando variavel para coletar a quantidade de registros de pokemons na próxima página
+    const qtdRecords = offset + limit
+
+    //criando condicional para validar se o limite ideal foi ultrapassado
+    if(qtdRecords >= maxRecords){
+        const newLimit = maxRecords - offset
+        loadPokemons(offset, newLimit)
+
+        //removendo o botão da página quando atingir o limite
+        loadButton.parentElement.removeChild(loadButton)
+    }else {
+        loadPokemons(offset, limit)
+    }
+
 })
 
 
