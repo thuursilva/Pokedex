@@ -15,7 +15,7 @@
 .water{
     background-color: #6390F0;
 }
-.eletric{
+.electric{
     background-color: #f7f72c;
 }
 .grass{
@@ -76,6 +76,7 @@ body{
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 
 .pokemon{
@@ -100,7 +101,6 @@ body{
 
 .number{
     color: var(--text-number);
-    opacity: 0.3;
     text-align: right;
     font-size: 0.6rem;
 }
@@ -164,7 +164,7 @@ body{
     }
 }
 
-@media screen and (max-width:360px){
+@media screen and (max-width:390px){
     .pokemon{
         grid-template-columns: 1fr;
     }
