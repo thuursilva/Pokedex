@@ -67,7 +67,6 @@ body{
 }
 
 .content{
-    padding: 1rem;
     width: 100vw;
     height: 100vh;
 }
@@ -92,6 +91,7 @@ body{
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    width: auto;
 }
 
 
