@@ -28,20 +28,13 @@ function loadPokemons(offset, limit){
 }
 
 loadPokemons(offset, limit)
-
-//criando regra para gerar apenas os pokemon da primeira geração
 loadButton.addEventListener('click', () =>{
     offset += limit
-
-    //criando variavel para coletar a quantidade de registros de pokemons na próxima página
     const qtdRecords = offset + limit
 
-    //criando condicional para validar se o limite ideal foi ultrapassado
     if(qtdRecords >= maxRecords){
         const newLimit = maxRecords - offset
         loadPokemons(offset, newLimit)
-
-        //removendo o botão da página quando atingir o limite
         loadButton.parentElement.removeChild(loadButton)
     }else {
         loadPokemons(offset, limit)
